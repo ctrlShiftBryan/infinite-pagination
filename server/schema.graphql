@@ -1,0 +1,28 @@
+type StreetName {
+  index: Int
+  streetName: String
+  hash: String
+}
+
+type Edge {
+  cursor: String
+  node: StreetName
+}
+
+type PageInfo {
+  endCursor: String
+  hasNextPage: Boolean
+}
+
+type Response {
+  edges: [Edge]
+  pageInfo: PageInfo
+}
+
+type Query {
+  streetNames(first: Int, after: String, delay: Boolean): Response
+}
+
+schema {
+  query: Query
+}
